@@ -36,13 +36,13 @@ public class InputReader {
         numberOfTurns = s.nextInt();
         maxPayload = s.nextInt();
 
-        Scanner s1 = new Scanner(lines.get(1));
-        int[] productWeights = int[s1.nextInt()];
+        s = new Scanner(lines.get(1));
+        int[] productWeights = int[s.nextInt()];
 
 
-        Scanner s2 = new Scanner(lines.get(2));
+        s = new Scanner(lines.get(2));
         for (int i = 0; i < productWeights.length; i++){
-            productWeights[i] = s2.nextInt();
+            productWeights[i] = s.nextInt();
         }
 
 
@@ -50,14 +50,3 @@ public class InputReader {
     }
 }
 
-public class Warehouse{
-
-    public int x;
-    public int y;
-
-    public Warehouse(int x, int y){
-        this.x = x;
-        this.y = y;
-    }
-
-}
