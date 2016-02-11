@@ -8,7 +8,7 @@ public class Main {
 
     public static void main(String[] args) {
 
-        input = new InputReader("mother_of_all_warehouses.in");
+        input = new InputReader("redundancy.in");
         output = new Output();
         int dronID = 0;
         for (Dron firstDron : input.drons) {
@@ -43,7 +43,6 @@ public class Main {
                             if (firstDron.takenTurns + t+t2+2  <= input.numberOfTurns){
                                 output.loadProduct(dronID, 1, j, b);
                                 output.deliverProduct(dronID, i, 1, j);
-                                output.unloadProduct(dronID, 1, j, b);
                                 firstDron.takenTurns += t+t2+2;
                                 firstDron.positionX = order.x;
                                 firstDron.positionY = order.y;
@@ -59,9 +58,10 @@ public class Main {
                 }
             }
             dronID++;
+
         }
 
-        output.generateOutput("mother_of_all_warehouses.out");
+        output.generateOutput("redundancy.out");
     }
 
     public static int getDistance(int firstX, int firstY, int secondX, int secondY){
