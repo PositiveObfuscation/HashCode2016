@@ -20,17 +20,17 @@ public class Main {
                         if (order.products[j] != 0){
                             Warehouse house;
                             int b;
-                            for(b = 0; b < input.warehouses.size(); b++){
+                            label2 : for(b = 0; b < input.warehouses.size(); b++){
                                 house = input.warehouses.get(b);
                                 for (int a = 0; a < house.avaliableProducts.length; a++){
                                     if(j == a){
                                         if (house.avaliableProducts[a] != 0){
-                                            break;
+                                            break label2;
                                         }
                                     }
                                 }
                             }
-                            b--;
+//                            b--;
 
                             int oneWeight = input.products.get(j).weight;
 //                                int totalWeight = order.products[j] * oneWeight;
@@ -38,57 +38,26 @@ public class Main {
 //
 //                                }
                             Warehouse house2 = input.warehouses.get(b);
-                            house2.avaliableProducts[j]--;
                             int t = getDistance(firstDron.positionX, firstDron.positionY, house2.x, house2.y);
-                            if (firstDron.takenTurns + t  <= input.numberOfTurns){
-                                firstDron.takenTurns += t;
+                            int t2 = getDistance(house2.x, house2.y, order.x, order.y);
+                            if (firstDron.takenTurns + t+t2+2  <= input.numberOfTurns){
+                                output.loadProduct(dronID, 1, j, b);
+                                output.deliverProduct(dronID, i, 1, j);
+                                output.unloadProduct(dronID, 1, j, b);
+                                firstDron.takenTurns += t+t2+2;
+                                firstDron.positionX = order.x;
+                                firstDron.positionY = order.y;
+                                house2.avaliableProducts[j]--;
+                                order.products[j]--;
                             }
                             else{
                                 break label;
                             }
 
-
-                            firstDron.positionX = house2.x;
-                            firstDron.positionY = house2.y;
-
-                            output.loadProduct(dronID, 1, j, b);
-                            if (firstDron.takenTurns + t  <= input.numberOfTurns){
-                                firstDron.takenTurns++;
-                            }
-                            else{
-                                break label;
-                            }
-
-
-                            int t2 = getDistance(firstDron.positionX, firstDron.positionY, order.x, order.y);
-                            if (firstDron.takenTurns + t  <= input.numberOfTurns){
-                                firstDron.takenTurns += t2;
-                            }
-                            else{
-                                break label;
-                            }
-
-
-                            output.deliverProduct(dronID, i, 1, j);
-
-                            output.unloadProduct(dronID, 1, j, b);
-                            if (firstDron.takenTurns + t  <= input.numberOfTurns){
-                                firstDron.takenTurns++;
-                            }
-                            else{
-                                break label;
-                            }
-
-
-                            firstDron.positionX = order.x;
-                            firstDron.positionY = order.y;
-
-                            order.products[j]--;
                         }
                     }
                 }
             }
-
             dronID++;
         }
 

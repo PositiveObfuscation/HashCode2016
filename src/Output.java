@@ -34,7 +34,7 @@ public class Output {
     }
 
     public void deliverProduct(int dronID, int customerID, int numberOfProducts, int productID){
-        lines.add(dronID + " D " + customerID + " " + numberOfProducts + " " + productID );
+        lines.add(dronID + " D " + customerID + " " + productID + " " + numberOfProducts );
     }
 
     public void unloadProduct(int dronID, int numberOfProducts, int productID, int warehouseID){
