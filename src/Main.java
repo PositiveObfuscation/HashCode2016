@@ -1,5 +1,5 @@
 /**
- * Created by Jakub Brindza a Viliam Mihalik on 11.2.2016.
+ * Created by Viliam Mihalik and Jakub Brindza on 11.2.2016.
  */
 public class Main {
 
