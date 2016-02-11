@@ -21,10 +21,15 @@ public class InputReader {
     public List<Warehouse> warehouses;
     public List<Product> products;
     public List<Order> orders;
+    public List<Dron> drons;
 
     public InputReader(String in) {
         file = Paths.get(in);
         readInput();
+        drons = new ArrayList<>();
+        for (int i = 0; i < numberOfDrones; i++){
+            drons.add(new Dron(warehouses.get(0).x, warehouses.get(0).y));
+        }
     }
 
     public void readInput(){

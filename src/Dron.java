@@ -9,7 +9,7 @@ public class Dron {
     int positionY;
 
 
-    public Dron(int positionY, int positionX) {
+    public Dron(int positionX, int positionY) {
         this.positionY = positionY;
         this.positionX = positionX;
     }

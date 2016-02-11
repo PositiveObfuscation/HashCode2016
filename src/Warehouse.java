@@ -1,8 +1,8 @@
 public class Warehouse{
 
-    public static int x;
-    public static int y;
-    public static int[] products;
+    public int x;
+    public int y;
+    public int[] products;
 
     public Warehouse(int x, int y, int productsNumber){
         this.x = x;

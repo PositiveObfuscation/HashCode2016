@@ -11,6 +11,8 @@ public class Main {
         input = new InputReader("busy_day.in");
         output = new Output();
 
+
+
         output.generateOutput("busy_day.out");
     }
 
