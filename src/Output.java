@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.Scanner;
 
 /**
- * Created by Jakub Brindza a Viliam Mihalik on 6.2.2016.
+ * Created by Viliam Mihalik and Jakub Brindza on 6.2.2016.
  */
 public class Output {
     public List<String> lines;
