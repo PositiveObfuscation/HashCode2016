@@ -3,9 +3,15 @@
  */
 public class Main {
 
+    public static Output output;
+    public static InputReader input;
+
     public static void main(String[] args) {
 
-        InputReader input = new InputReader();
+        input = new InputReader("busy_day.in");
 
+
+        output.generateOutput("busy_day.in");
     }
+
 }
