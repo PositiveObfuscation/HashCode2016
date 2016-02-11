@@ -1,11 +1,11 @@
 public class Product{
-        public static int weight;
+        public int weight;
 
         public Product(int weight){
             this.weight = weight;
         }
 
-        public static int getWeight(){
+        public int getWeight(){
             return weight;
         }
 

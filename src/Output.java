@@ -30,15 +30,15 @@ public class Output {
     }
 
     public void loadProduct(int dronID, int numberOfProducts, int productID, int warehouseID){
-        lines.add(dronID + " L " + numberOfProducts + " " + productID + " " + warehouseID );
+        lines.add(dronID + " L " + warehouseID + " " + productID + " " + numberOfProducts );
     }
 
     public void deliverProduct(int dronID, int customerID, int numberOfProducts, int productID){
-        lines.add(dronID + " L " + customerID + " " + numberOfProducts + " " + productID );
+        lines.add(dronID + " D " + customerID + " " + numberOfProducts + " " + productID );
     }
 
     public void unloadProduct(int dronID, int numberOfProducts, int productID, int warehouseID){
-        lines.add(dronID + " U " + numberOfProducts + " " + productID + " " + warehouseID );
+        lines.add(dronID + " U " + warehouseID + " " + productID + " " + numberOfProducts );
     }
 
     public void waitDron(int dronID, int numberOfTurns){
