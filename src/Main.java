@@ -8,7 +8,7 @@ public class Main {
 
     public static void main(String[] args) {
 
-        input = new InputReader("redundancy.in");
+        input = new InputReader("busy_day.in");
         output = new Output();
         int dronID = 0;
         for (Dron firstDron : input.drons) {
@@ -33,21 +33,32 @@ public class Main {
 //                            b--;
 
                             int oneWeight = input.products.get(j).weight;
-//                                int totalWeight = order.products[j] * oneWeight;
+                            int totalWeight = 0;
 //                                if (input.maxPayload >= oneWeight){
 //
 //                                }
+                            int x;
+                            int min = Math.min(input.warehouses.get(b).avaliableProducts[j], order.products[j]);
+                            for (x = 1; x <= min; x++){
+                                totalWeight = x * oneWeight;
+                                if (input.maxPayload < totalWeight){
+                                    totalWeight -= oneWeight;
+                                    break;
+                                }
+                            }
+                            x--;
+
                             Warehouse house2 = input.warehouses.get(b);
                             int t = getDistance(firstDron.positionX, firstDron.positionY, house2.x, house2.y);
                             int t2 = getDistance(house2.x, house2.y, order.x, order.y);
                             if (firstDron.takenTurns + t+t2+2  <= input.numberOfTurns){
-                                output.loadProduct(dronID, 1, j, b);
-                                output.deliverProduct(dronID, i, 1, j);
+                                output.loadProduct(dronID, x, j, b);
+                                output.deliverProduct(dronID, i, x, j);
                                 firstDron.takenTurns += t+t2+2;
                                 firstDron.positionX = order.x;
                                 firstDron.positionY = order.y;
-                                house2.avaliableProducts[j]--;
-                                order.products[j]--;
+                                house2.avaliableProducts[j] -= x;
+                                order.products[j] -= x;
                             }
                             else{
                                 break label;
@@ -61,7 +72,7 @@ public class Main {
 
         }
 
-        output.generateOutput("redundancy.out");
+        output.generateOutput("busy_day.out");
     }
 
     public static int getDistance(int firstX, int firstY, int secondX, int secondY){
