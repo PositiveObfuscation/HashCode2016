@@ -28,20 +28,5 @@ public class InputReader {
         Scanner s = new Scanner(lines.get(0));
         numberOfRows  = s.nextInt();
         numberOfColumns  = s.nextInt();
-        lines.remove(0); //remove first numbers
-    }
-
-    public boolean getCell(int row, int column){
-        Character character = lines.get(row).charAt(column);
-
-        if (row >= numberOfRows || column >= numberOfColumns || row < 0 || column < 0){
-            throw new IndexOutOfBoundsException();
-        }
-
-        if (character.equals("#".charAt(0))){
-            return true;
-        }else{
-            return false;
-        }
     }
 }
