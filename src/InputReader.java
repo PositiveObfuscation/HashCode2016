@@ -80,8 +80,16 @@ public class InputReader {
         for (int i = 0; i < numberOfOrders; i++){
             orders.add(new Order(s.nextInt(), s.nextInt(), products.size()));
             s = new Scanner(lines.get(++index));
-            for (int j = 0; j < s.nextInt(); j++){
+            int numberOfItems = s.nextInt();
+            s = new Scanner(lines.get(++index));
+            for (int j = 0; j < numberOfItems; j++){
                 orders.get(i).increaseOrder(s.nextInt());
+            }
+            if (++index < lines.size()) {
+                s = new Scanner(lines.get(index));
+            }
+            else{
+                break;
             }
         }
 

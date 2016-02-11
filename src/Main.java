@@ -9,9 +9,9 @@ public class Main {
     public static void main(String[] args) {
 
         input = new InputReader("busy_day.in");
+        output = new Output();
 
-
-        output.generateOutput("busy_day.in");
+        output.generateOutput("busy_day.out");
     }
 
 }
