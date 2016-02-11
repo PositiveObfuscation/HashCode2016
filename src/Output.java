@@ -16,6 +16,7 @@ public class Output {
 
     public Output(InputReader in) {
         lines = new ArrayList<>();
+        lines = in.lines;
     }
 
     public void generateOutput(String fileName){
