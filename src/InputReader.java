@@ -36,14 +36,13 @@ public class InputReader {
         numberOfTurns = s.nextInt();
         maxPayload = s.nextInt();
 
-        s = new Scanner(lines.get(1));
-        int[] productWeights = int[s.nextInt()];
-
-
+        /**s = new Scanner(lines.get(1));
+        int len = s.nextInt()
         s = new Scanner(lines.get(2));
-        for (int i = 0; i < productWeights.length; i++){
-            productWeights[i] = s.nextInt();
-        }
+
+        for (int i = 0; i < len; i++){
+            Product product = new Product(s.nextInt());
+        }**/
 
 
 
